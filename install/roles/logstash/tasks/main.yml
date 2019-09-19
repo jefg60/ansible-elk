@@ -37,6 +37,7 @@
     owner: logstash
     group: logstash
     mode: 0755
+  become: true
 
 - name: Apply logstash netty tmpdir workaround
   lineinfile:
