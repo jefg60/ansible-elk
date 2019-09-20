@@ -1,5 +1,7 @@
 [elk]
 elkserver.staging
+elkserver2.staging
+elkserver3.staging
 
 [elk_client]
 elkclient.staging
