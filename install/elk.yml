@@ -13,6 +13,7 @@
   vars_files:
     - group_vars/all.yml
   roles:
+    - { role: firewall, when: manage_firewall|bool, become: true }
     - { role: elasticsearch }
     - { role: fluentd, when: (logging_backend == 'fluentd') }
     - { role: logstash, when: ((logging_backend is none) or (logging_backend == 'logstash')) }
@@ -21,5 +22,4 @@
     - { role: curator, when: install_curator_tool|bool }
     - { role: kibana }
     - { role: xpack, when: ((install_elasticsearch_xpack|bool) or (install_kibana_xpack|bool) or (install_logstash_xpack|bool)) }
-    - { role: firewall, when: manage_firewall|bool }
     - { role: instructions }
