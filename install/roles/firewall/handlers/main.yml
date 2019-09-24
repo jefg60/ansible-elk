@@ -1,7 +1,3 @@
 ---
-
-- name: restart iptables
-  become: true
-  service:
-    name: iptables
-    state: restarted
+- name: restart firewall
+  service: name=firewall state=restarted

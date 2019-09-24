@@ -78,6 +78,7 @@ fluentd_debug_port: 24230
 # to true
 # we will set this to false by default
 es_local_port: 9200
+es_port: 9300
 es_listen_external: true
 ### install curator tool ###
 # curator is the recommended tool for managing elasticsearch indexes
@@ -111,3 +112,15 @@ install_packetbeat: false
 #This should be installed on only one server in your environment.
 #Install Heartbeat
 install_heartbeat: false
+
+#vars for geerlingguy firewall
+firewall_allowed_tcp_ports:
+  - "22"
+  - "{{ es_local_port }}"
+  - "{{ es_port }}"
+  - "{{ logstash_localsyslog_port }}"
+  - "{{ logstash_syslog_port }}"
+  - "{{ www_kibana_port }}"
+  - "{{ elk_server_ssl_cert_port }}"
+  - "{{ fluentd_syslog_port }}"
+  - "{{ fluentd_http_port }}"
